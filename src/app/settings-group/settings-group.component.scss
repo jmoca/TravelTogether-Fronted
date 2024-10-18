@@ -1,0 +1,67 @@
+.group-name {
+  font-size: 22px;   /* Tamaño grande */
+  font-weight: bold;
+  color: #007bff;
+}
+
+.participants-title {
+  font-size: 2.5rem;
+  color: #007bff;
+}
+
+.votes-title {
+  font-size: 22px;   /* Tamaño grande */
+  font-weight: bold;
+  text-align: center;
+  color: #007bff;
+}
+
+.votes-card h1 {
+  font-size: 3rem;
+  text-align: center;
+  color: #007bff;
+}
+.share-card {
+  background-color: rgba(0, 123, 255, 0.61); /* Fondo azul para la card */
+  border-radius: 12px; /* Esquinas redondeadas */
+
+ion-icon {
+  font-size: 50px; /* Tamaño de los íconos */
+
+}
+
+ion-button {
+  --background: transparent; /* Fondo transparente para los botones */
+}
+
+ion-card-content {
+  padding: 10px;
+}
+}
+.share-card ion-label {
+  color: white;      /* Letra blanca */
+  font-size: 22px;   /* Tamaño grande */
+  font-weight: bold; /* Negrita para mayor visibilidad */
+  text-align: center; /* Centrar el texto */
+  display: block;    /* Asegurarse de que ocupe el ancho completo */
+}
+
+h2{
+  font-size: 22px;   /* Tamaño grande */
+  font-weight: bold; /* Negrita para mayor visibilidad */
+  color: #007bff;    /* Color azul */
+}
+h1{
+  font-size: 22px;   /* Tamaño grande */
+  font-weight: bold;  /* Negrita para mayor visibilidad */
+  color: #007bff;     /* Color azul */
+  text-align: center; /* Centrar el texto */
+}
+.votes-card {
+  background-color: white;
+  border-radius: 15px;
+}
+
+
+
+

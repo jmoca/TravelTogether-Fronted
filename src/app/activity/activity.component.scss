@@ -1,0 +1,18 @@
+.header-container {
+  display: flex;
+  justify-content: space-between; /* Esto coloca el título a la izquierda y el contador a la derecha */
+  align-items: center; /* Alinea verticalmente el contenido */
+}
+
+.counter-container {
+  display: flex;
+  align-items: center; /* Alinea verticalmente los botones y el contador */
+}
+
+.counter-container ion-button {
+  margin: 0 5px;
+}
+.contador {
+  font-size: 1.75em; /* Ajusta el tamaño de la fuente */
+}
+

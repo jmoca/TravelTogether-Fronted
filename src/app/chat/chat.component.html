@@ -1,0 +1,60 @@
+<ion-content>
+    <ion-header>
+        <ion-toolbar class="custom-footer-toolbar">
+            <div class="footer-content" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                <div style="display: flex; align-items: center;"> <!-- Contenedor para el label y avatar -->
+                    <ion-button fill="clear" style="padding: 0;" [routerLink]="['/group']">
+                        <img src="assets/icon/icon-flecha.png" alt="Volver" style="width: 45px; height: 45px;" />
+                    </ion-button>
+
+                    <ion-label class="custom-label">Grupo 1</ion-label>
+                </div>
+                <ion-avatar slot="start" style="margin-right: 10px;">
+                    <img src="assets/img/img_group.png" alt="Avatar del grupo" />
+                </ion-avatar>
+            </div>
+        </ion-toolbar>
+    </ion-header>
+
+    <!-- Área de contenido del chat -->
+    <div class="chat-container">
+        <!-- Mensajes del chat -->
+        <ion-list class="chat-messages">
+            <!-- Ejemplo de un mensaje enviado por el usuario -->
+            <ion-item class="message message-sent">
+                <ion-label>
+                    <p>Hola, ¿cómo estás?</p>
+                    <small class="message-time">10:15 AM</small>
+                </ion-label>
+            </ion-item>
+
+            <!-- Ejemplo de un mensaje recibido -->
+            <ion-item class="message message-received">
+                <ion-label>
+                    <p>¡Todo bien! ¿Y tú?</p>
+                    <small class="message-time">10:16 AM</small>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+    </div>
+
+
+    <!-- Barra de entrada de mensajes -->
+    <div class="chat-input-container">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="9" class="input-with-icon">
+                    <div class="input-container">
+                        <ion-input placeholder="Escribe un mensaje..."></ion-input>
+                        <img src="assets/icon/icons-micro.png" alt="Microfono" class="input-icon" />
+                    </div>
+                </ion-col>
+                <ion-col size="3" class="ion-text-right">
+                    <ion-button fill="clear" color="primary">
+                        <img src="assets/icon/icons-enviar.png" alt="Enviar mensaje" style="width: 50px;height: 30px;" />
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+</ion-content>

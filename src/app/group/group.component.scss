@@ -1,0 +1,55 @@
+.titulo {
+  display: flex;
+  justify-content: space-between;
+  font-size: 2rem;
+  color: #007bff;
+}
+
+.usuario-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.usuario-text {
+  font-size: 1rem;
+  color: #007bff;
+  margin-top: 5px;
+}
+
+.grupo-btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+ion-img {
+  max-width: 80px;
+  margin-top: 10px;
+}
+
+ion-avatar {
+  width: 60px;
+  height: 60px;
+}
+
+.centered-content1 {
+  display: flex;
+  flex-direction: column; /* Para que los elementos estén en columna */
+  /* Centrado horizontal */
+
+
+}
+ion-icon {
+  margin-left: 5px;
+  color: white;
+}
+
+.arrow {
+  margin-top: 20px;
+}
+.grupo-texto {
+  color: white; /* Letra en blanco */
+  font-size: 20px; /* Tamaño de letra más grande */
+  font-weight: bold; /* Opción para hacer el texto en negrita, si lo deseas */
+}
