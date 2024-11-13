@@ -1,7 +1,0 @@
-{
-  "name": "TravelTogether",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular-standalone"
-}
