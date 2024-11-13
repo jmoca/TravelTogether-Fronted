@@ -6,6 +6,9 @@ import {addIcons} from "ionicons";
 import {add} from "ionicons/icons";
 import {RouterLink} from "@angular/router";
 import {NavbarGroupComponent} from "../navbar-group/navbar-group.component";
+import {Actividad} from "../model/Actividad";
+import {ActividadService} from "../services/Actividad.service";
+import {CommonModule} from "@angular/common";
 
 @Component({
   selector: 'app-activity',
@@ -17,20 +20,30 @@ import {NavbarGroupComponent} from "../navbar-group/navbar-group.component";
     NavbarComponent,
     FooterComponent,
     RouterLink,
-    NavbarGroupComponent
+    NavbarGroupComponent,
+      CommonModule
   ]
 })
 export class ActivityComponent implements OnInit {
 
-  // Arreglo de contadores para las tarjetas
-  counters: number[] = [0, 0, 0];
+  actividades: Actividad[] = [];
 
-  constructor() {
+  constructor(private actividadService: ActividadService) {
     addIcons({ add });
 
   }
 
-  ngOnInit() {}
+    ngOnInit() {
+        this.actividadService.getActividades().subscribe({
+            next: (data) => {
+                this.actividades = data;
+                console.info(data);
+            },
+            error: (error) => console.error('Erro',error),
+            complete: () => console.log('Petición completada')
+        });
+    }
+
   count = 0;
 
   increment() {

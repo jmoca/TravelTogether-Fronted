@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Actividad} from "../model/Actividad";
-import any = jasmine.any;
+
 import {Observable} from "rxjs";
 
 @Injectable({
@@ -9,10 +9,10 @@ import {Observable} from "rxjs";
 })
 export class ActividadService {
 
-  constructor(httpCliente: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
 
     getActividades(): Observable<Actividad[]>{
-      return [];
+      return this.httpClient.get<any>('/api/actividades/all');
     }
 }
