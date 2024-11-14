@@ -27,6 +27,7 @@ import {CommonModule} from "@angular/common";
 export class ActivityComponent implements OnInit {
 
   actividades: Actividad[] = [];
+  private id_grupo: number = 1;
 
   constructor(private actividadService: ActividadService) {
     addIcons({ add });
@@ -34,7 +35,7 @@ export class ActivityComponent implements OnInit {
   }
 
     ngOnInit() {
-        this.actividadService.getActividades().subscribe({
+        this.actividadService.getActividades(this.id_grupo).subscribe({
             next: (data) => {
                 this.actividades = data;
                 console.info(data);

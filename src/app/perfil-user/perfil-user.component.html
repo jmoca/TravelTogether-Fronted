@@ -31,7 +31,7 @@
                 <ion-col size="9">
                     <div class="grupos-title" style="display: flex; align-items: center;">
                         <ion-icon name="people-outline" style="margin-right: 8px;"></ion-icon>
-                        <h2 style="margin: 0;">Grupos</h2>
+                        <h2 style="margin: 0;">Amigos</h2>
                     </div>
                 </ion-col>
 
@@ -42,41 +42,11 @@
         <ion-card-content>
             <ion-list>
 
-                <ion-item>
+                <ion-item *ngFor="let ami of amigos" >
                     <ion-avatar style=" margin-bottom: 20px; margin-right: 20px">
-                        <ion-img src="https://picsum.photos/80/80?random=1"></ion-img>
+                        <ion-img src="{{ami.multimedia}}"></ion-img>
                     </ion-avatar>
-                    <ion-label class="grupos-title">Grupo1</ion-label>
-                    <ion-button fill="clear" slot="end">
-                        <img src="assets/icon/icons-multiplicar.png" alt="Eliminar" style="width: 24px; height: 24px;">
-                    </ion-button>
-                </ion-item>
-
-                <ion-item>
-                    <ion-avatar style=" margin-bottom: 20px; margin-right: 20px">
-                        <ion-img src="https://picsum.photos/80/80?random=2"></ion-img>
-                    </ion-avatar>
-                    <ion-label class="grupos-title">Grupo 2</ion-label>
-                    <ion-button fill="clear" slot="end">
-                        <img src="assets/icon/icons-multiplicar.png" alt="Eliminar" style="width: 24px; height: 24px;">
-                    </ion-button>
-                </ion-item>
-
-                <ion-item>
-                    <ion-avatar style=" margin-bottom: 20px; margin-right: 20px">
-                        <ion-img src="https://picsum.photos/80/80?random=3"></ion-img>
-                    </ion-avatar>
-                    <ion-label class="grupos-title">Grupo 3</ion-label>
-                    <ion-button fill="clear" slot="end">
-                        <img src="assets/icon/icons-multiplicar.png" alt="Eliminar" style="width: 24px; height: 24px;">
-                    </ion-button>
-                </ion-item>
-
-                <ion-item>
-                    <ion-avatar style=" margin-bottom: 20px; margin-right: 20px">
-                        <ion-img src="https://picsum.photos/80/80?random=4"></ion-img>
-                    </ion-avatar>
-                    <ion-label class="grupos-title">Grupo 4</ion-label>
+                    <ion-label class="grupos-title">{{ami.nombre}}</ion-label>
                     <ion-button fill="clear" slot="end">
                         <img src="assets/icon/icons-multiplicar.png" alt="Eliminar" style="width: 24px; height: 24px;">
                     </ion-button>
@@ -111,6 +81,7 @@
             </ion-grid>
         </ion-card-content>
     </ion-card>
+
 
 </ion-content>
 <app-footer></app-footer>

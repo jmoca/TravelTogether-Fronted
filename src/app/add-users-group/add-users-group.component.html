@@ -1,0 +1,26 @@
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col size="12">
+                <ion-card>
+                    <ion-card-header>
+                        <ion-card-title style="font-size: 1.5rem;">Añadir Participante</ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content style="padding: 20px;">
+                        <ion-list>
+                            <ion-item class="ion-item1">
+                                <ion-input type="text" placeholder="ID del participante" style="font-size: 1.2rem;"></ion-input>
+                            </ion-item>
+
+
+
+                        </ion-list>
+
+                        <ion-button expand="block" color="primary" style="font-size: 1.2rem;" [routerLink]="['/settings-group']">Añadir</ion-button>
+                        <ion-button expand="block" color="primary" style="font-size: 1.2rem;" [routerLink]="['/settings-group']" >Cancelar</ion-button>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

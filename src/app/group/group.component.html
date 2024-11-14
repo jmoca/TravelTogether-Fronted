@@ -5,56 +5,22 @@
       <ion-col class="centered-content1">
         <div style="display: flex; align-items: center; padding: 10px;"> <!-- Aquí agregamos el padding -->
           <h1 class="titulo" style="margin: 0;">Grupos</h1>
-          <img src="assets/icon/icons-mas.png" style="width: 30px; height: 30px; margin-left: 4px;" />
+          <ion-button [routerLink]="['/new-group']" fill="clear"><img src="assets/icon/icons-mas.png" style="width: 30px; height: 30px; margin-left: 4px;" /></ion-button>
         </div>
       </ion-col>
     </ion-row>
 
     <!-- Grupos -->
-    <ion-row >
+    <ion-row  *ngFor="let grupo of grupos">
       <ion-col class="centered-content" size="12">
         <ion-button  expand="block" color="primary" class="grupo-btn" style="border-radius: 50px; justify-content: flex-start; " [routerLink]="['/activity']">
           <ion-avatar style="width: 80px; height: 80px;overflow: hidden;  margin-right: 20px;">
-            <ion-img src="https://picsum.photos/80/80?random=1"></ion-img>
+            <ion-img src="{{grupo.multimedia}}"></ion-img>
           </ion-avatar>
-          <span class="grupo-texto"  style="flex-grow: 1; text-align: left;">Grupo 1</span>
+          <span class="grupo-texto"  style="flex-grow: 1; text-align: left;">{{grupo.nombre}}</span>
         </ion-button>
       </ion-col>
 
-      <ion-col class="centered-content" size="12">
-        <ion-button  expand="block" color="primary" class="grupo-btn" style="border-radius: 20px; justify-content: flex-start;" routerLink='/activity' >
-          <ion-avatar style="width: 80px; height: 80px;overflow: hidden;  margin-right: 20px;">
-            <ion-img src="https://picsum.photos/80/80?random=2"></ion-img>
-          </ion-avatar>
-          <span class="grupo-texto" style="flex-grow: 1; text-align: left; padding: 16px 0;">Grupo 2</span>
-
-        </ion-button>
-      </ion-col>
-      <ion-col class="centered-content" size="12">
-        <ion-button expand="block" color="primary" class="grupo-btn" style="border-radius: 20px; justify-content: flex-start;" routerLink='/activity'>
-          <ion-avatar style="width: 80px; height: 80px;overflow: hidden;  margin-right: 20px;">
-            <ion-img src="https://picsum.photos/80/80?random=3"></ion-img>
-          </ion-avatar>
-          <span class="grupo-texto" style="flex-grow: 1; text-align: left; padding: 16px 0;">Grupo 3</span>
-        </ion-button>
-      </ion-col >
-      <ion-col class="centered-content" size="12">
-        <ion-button expand="block" color="primary" class="grupo-btn" style="border-radius: 20px; justify-content: flex-start;" routerLink='/activity'>
-          <ion-avatar style="width: 80px; height: 80px;overflow: hidden;  margin-right: 20px;">
-            <ion-img src="https://picsum.photos/80/80?random=4"></ion-img>
-          </ion-avatar>
-          <span class="grupo-texto" style="flex-grow: 1; text-align: left; padding: 16px 0;">Grupo 4</span>
-
-        </ion-button>
-      </ion-col>
-      <ion-col class="centered-content" size="12">
-        <ion-button expand="block" color="primary" class="grupo-btn" style="border-radius: 20px; justify-content: flex-start;" routerLink='/activity'>
-          <ion-avatar style="width: 80px; height: 80px;overflow: hidden;  margin-right: 20px;">
-            <ion-img src="https://picsum.photos/80/80?random=5"></ion-img>
-          </ion-avatar>
-          <span class="grupo-texto" style="flex-grow: 1; text-align: left; padding: 16px 0;">Grupo 5</span>
-        </ion-button>
-      </ion-col>
     </ion-row>
 
     <!-- Flecha -->

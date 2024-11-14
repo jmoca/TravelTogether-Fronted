@@ -59,6 +59,18 @@
       {
           path: 'perfil-user',
           loadComponent: () => import('./perfil-user/perfil-user.component').then((m) => m.PerfilUserComponent),
+      },
+      {
+          path: 'new-group',
+          loadComponent: () => import('./new-group/new-group.component').then((m) => m.NewGroupComponent),
+      },
+      {
+          path: 'add-users-group',
+          loadComponent: () => import('./add-users-group/add-users-group.component').then((m) => m.AddUsersGroupComponent),
+      },
+      {
+          path: 'add-friends',
+          loadComponent: () => import('./add-friends/add-friends.component').then((m) => m.AddFriendsComponent),
       }
 
   ];

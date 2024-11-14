@@ -32,7 +32,7 @@
           </div>
         </ion-col>
         <ion-col size="3" class="ion-text-right">
-          <ion-button fill="clear">
+          <ion-button fill="clear" [routerLink]="['/add-users-group']">
             <img src="assets/icon/icons-nuevo_participante.png" alt="Añadir Participante" style="width: 30px; height: 30px;">
           </ion-button>
         </ion-col>
@@ -43,44 +43,11 @@
     <ion-card-content>
       <ion-list>
         <!-- Participante 1 -->
-        <ion-item>
+        <ion-item *ngFor="let usu of usuarios" >
           <ion-avatar slot="start">
-            <img src="assets/img/avatar5_wow.png" alt="Avatar" />
+            <img src="{{usu.multimedia}}" alt="Avatar" />
           </ion-avatar>
-          <ion-label>Miguelito29</ion-label>
-          <ion-button fill="clear" slot="end">
-            <img src="assets/icon/icons-multiplicar.png" alt="Eliminar" style="width: 24px; height: 24px;">
-          </ion-button>
-        </ion-item>
-
-        <!-- Participante 2 -->
-        <ion-item>
-          <ion-avatar slot="start">
-            <img src="assets/img/avatar3_cs.png" alt="Avatar" />
-          </ion-avatar>
-          <ion-label>D1vido</ion-label>
-          <ion-button fill="clear" slot="end">
-            <img src="assets/icon/icons-multiplicar.png" alt="Eliminar" style="width: 24px; height: 24px;">
-          </ion-button>
-        </ion-item>
-
-        <!-- Participante 3 -->
-        <ion-item>
-          <ion-avatar slot="start">
-            <img src="assets/img/avatar4_jujut.png" alt="Avatar" />
-          </ion-avatar>
-          <ion-label>Juanitox</ion-label>
-          <ion-button fill="clear" slot="end">
-            <img src="assets/icon/icons-multiplicar.png" alt="Eliminar" style="width: 24px; height: 24px;">
-          </ion-button>
-        </ion-item>
-
-        <!-- Participante 4 -->
-        <ion-item>
-          <ion-avatar slot="start">
-            <img src="assets/img/avatar2_jugador.png" alt="Avatar" />
-          </ion-avatar>
-          <ion-label>El_Rafita</ion-label>
+          <ion-label>{{usu.nombre}}</ion-label>
           <ion-button fill="clear" slot="end">
             <img src="assets/icon/icons-multiplicar.png" alt="Eliminar" style="width: 24px; height: 24px;">
           </ion-button>
