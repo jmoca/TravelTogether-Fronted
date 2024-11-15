@@ -9,33 +9,27 @@
           <ion-card-content style="padding: 20px;">
             <ion-list>
               <ion-item class="ion-item1">
-                <ion-input type="text" placeholder="Nombre de la actividad" style="font-size: 1.2rem;"></ion-input>
+                <ion-input type="text" placeholder="Nombre de la actividad" style="font-size: 1.2rem;" [(ngModel)]="nombreActividad"></ion-input>
               </ion-item>
               <ion-item class="ion-item1">
-                <ion-textarea placeholder="Descripción" style="font-size: 1.2rem;"></ion-textarea>
+                <ion-textarea placeholder="Descripción" style="font-size: 1.2rem;" [(ngModel)]="descripcionActividad"></ion-textarea>
               </ion-item>
 
                 <ion-item class="ion-item1">
-                    <ion-textarea placeholder="URL de la Imagen" style="font-size: 1.2rem;"></ion-textarea>
+                    <ion-textarea placeholder="URL de la Imagen" style="font-size: 1.2rem;" [(ngModel)]="multimediaActividad"></ion-textarea>
                 </ion-item>
 
 
               <ion-item class="ion-item1">
-                <ion-input type="text" placeholder="Ubicación" style="font-size: 1.2rem;"></ion-input>
+                <ion-input type="text" placeholder="Ubicación" style="font-size: 1.2rem;" [(ngModel)]="ubicacionActividad"></ion-input>
+              </ion-item>
+              <ion-item class="ion-item1">
+                <ion-input type="text" placeholder="Fecha" style="font-size: 1.2rem;" [(ngModel)]="fechaActividad"></ion-input>
               </ion-item>
 
-              <ion-item class="ion-item1">
-                <ion-label style="font-size: 1.2rem;">Fecha</ion-label>
-                <ion-datetime-button datetime="datetime"></ion-datetime-button>
-                <ion-modal [keepContentsMounted]="true">
-                  <ng-template>
-                    <ion-datetime id="datetime"></ion-datetime>
-                  </ng-template>
-                </ion-modal>
-              </ion-item>
             </ion-list>
 
-            <ion-button expand="block" color="primary" style="font-size: 1.2rem;" [routerLink]="['/activity']">Guardar</ion-button>
+            <ion-button expand="block" color="primary" style="font-size: 1.2rem;" [routerLink]="['/activity']" (click)="crearActividad">Guardar</ion-button>
             <ion-button expand="block" color="primary" style="font-size: 1.2rem;" [routerLink]="['/activity']" >Eliminar</ion-button>
           </ion-card-content>
         </ion-card>

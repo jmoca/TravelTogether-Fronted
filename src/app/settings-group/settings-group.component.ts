@@ -3,7 +3,7 @@ import {IonicModule} from "@ionic/angular";
 import {FooterComponent} from "../footer/footer.component";
 import {RouterLink} from "@angular/router";
 import {CommonModule} from "@angular/common";
-import {Usuario} from "../model/Usuario";
+
 import {GrupoService} from "../services/Grupo.service";
 import {Grupo} from "../model/Grupo";
 
@@ -20,7 +20,7 @@ import {Grupo} from "../model/Grupo";
   ]
 })
 export class SettingsGroupComponent implements OnInit {
-  usuarios: (string | undefined)[] = [];
+  usuarios: { id: number | undefined; nombre: string }[] = [];
   private id_grupo: number = 1;
 
   constructor(private grupoServicio: GrupoService) { }
@@ -32,11 +32,13 @@ export class SettingsGroupComponent implements OnInit {
   cargarUsuarios(): void {
     this.grupoServicio.getParticipantes(this.id_grupo).subscribe({
       next: (grupo: Grupo) => {
-
         if (grupo.usuarios) {
-          // Extraer los nombres de los usuarios (solo si existen)
-          this.usuarios = grupo.usuarios.map(usuario => usuario.nombre);
-          console.info(this.usuarios); // Esto ahora debería ser un arreglo de nombres
+          // Aquí almacenamos tanto el nombre como el id del usuario en un objeto
+          this.usuarios = grupo.usuarios.map(usuario => ({
+            id: usuario.id,     // Asegúrate de que 'id' sea un atributo del usuario
+            nombre: usuario.nombre || 'Nombre no disponible'  // Agregar un valor por defecto
+          }));
+          console.info(this.usuarios); // Verificamos los datos que hemos almacenado
         } else {
           this.usuarios = [];
         }
@@ -48,6 +50,7 @@ export class SettingsGroupComponent implements OnInit {
 
 
 
+
   count = 3;
   increment() {
     this.count++;
@@ -56,4 +59,22 @@ export class SettingsGroupComponent implements OnInit {
   decrement() {
     this.count--;
   }
+
+  eliminarParticipante(id_usuario: number | undefined): void {
+    if (id_usuario !== undefined) {  // Comprobamos si id_usuario no es undefined
+      this.grupoServicio.eliminarParticipante(this.id_grupo, id_usuario).subscribe(
+        (usuario) => {
+          console.log("Participante eliminado:", usuario);
+          // Después de eliminar, actualiza la lista de usuarios
+          this.cargarUsuarios();
+        },
+        (error) => {
+          console.error("Error al eliminar al participante", error);
+        }
+      );
+    } else {
+      console.error("El ID del usuario es inválido");
+    }
+  }
+
 }
