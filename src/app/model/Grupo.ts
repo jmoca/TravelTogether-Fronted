@@ -1,3 +1,4 @@
+import {Usuario} from "./Usuario";
 
 
 export class Grupo{
@@ -7,6 +8,7 @@ export class Grupo{
     multimedia?: string;
     integrantes?: number;
     fecha_creacion?: string;
+    usuarios?: Usuario[];
 
 
 }

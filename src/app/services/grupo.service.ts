@@ -20,8 +20,8 @@ export class GrupoService {
     nuevoParticipante(id_grupo:number,usuario:Usuario): Observable<Usuario>{
         return this.httpClient.post<Usuario>(`/api/viaje/participante?id_grupo=${id_grupo}`,usuario);
     }
-    getParticipantes(id_grupo:number): Observable<Usuario[]>{
-        return this.httpClient.get<Usuario[]>(`/api/viaje/participantes?id_grupo=${id_grupo}`);
+    getParticipantes(id_grupo:number): Observable<Grupo>{
+        return this.httpClient.get<Grupo>(`/api/viaje/participantes?id_grupo=${id_grupo}`);
     }
     eliminarParticipante(id_grupo:number,id_usuario:number): Observable<Usuario>{
         return this.httpClient.delete<Usuario>(`/api/viaje/participante?id_grupo=${id_grupo}&id_usuario=${id_usuario}`);

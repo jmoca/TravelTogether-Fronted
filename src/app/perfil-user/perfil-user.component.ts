@@ -3,8 +3,9 @@ import {IonicModule} from "@ionic/angular";
 import {FooterComponent} from "../footer/footer.component";
 import {RouterLink} from "@angular/router";
 import {Usuario} from "../model/Usuario";
-import {UsuarioService} from "../services/Usuario.service";
+
 import {CommonModule} from "@angular/common";
+import {UsuarioService} from "../services/usuario.service";
 
 @Component({
     selector: 'app-perfil-user',
@@ -28,14 +29,16 @@ export class PerfilUserComponent  implements OnInit {
     }
 
 
-    cargarAmigos(): void{
-        this.usuario.getAmigos(this.id_usuario).subscribe({
-            next: (data) => {
-                console.info(data);
-            },
-            error: (error) => console.error('Erro',error),
-            complete: () => console.log('Petición completada')
-        });
-    }
+  cargarAmigos(): void {
+    this.usuario.getAmigos(this.id_usuario).subscribe({
+      next: (data) => {
+        console.info(data);
+        this.amigos = data;
+      },
+      error: (error) => console.error('Error', error),
+      complete: () => console.log('Petición completada')
+    });
+  }
+
 
 }
