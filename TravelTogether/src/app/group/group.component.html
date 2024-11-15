@@ -1,0 +1,34 @@
+<ion-content>
+  <app-navbar></app-navbar>
+  <ion-grid >
+    <ion-row>
+      <ion-col class="centered-content1">
+        <div style="display: flex; align-items: center; padding: 10px;"> <!-- Aquí agregamos el padding -->
+          <h1 class="titulo" style="margin: 0;">Grupos</h1>
+          <ion-button [routerLink]="['/new-group']" fill="clear"><img src="assets/icon/icons-mas.png" style="width: 30px; height: 30px; margin-left: 4px;" /></ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <!-- Grupos -->
+    <ion-row  *ngFor="let grupo of grupos">
+      <ion-col class="centered-content" size="12">
+        <ion-button  expand="block" color="primary" class="grupo-btn" style="border-radius: 50px; justify-content: flex-start; " [routerLink]="['/activity']">
+          <ion-avatar style="width: 80px; height: 80px;overflow: hidden;  margin-right: 20px;">
+            <ion-img src="{{grupo.multimedia}}"></ion-img>
+          </ion-avatar>
+          <span class="grupo-texto"  style="flex-grow: 1; text-align: left;">{{grupo.nombre}}</span>
+        </ion-button>
+      </ion-col>
+
+    </ion-row>
+
+    <!-- Flecha -->
+    <ion-row>
+      <ion-col size="12" class="ion-text-center">
+        <ion-icon name="arrow-forward-circle" size="large"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

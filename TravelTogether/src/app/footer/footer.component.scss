@@ -1,0 +1,26 @@
+ion-footer {
+  background-color: blue; /* Cambia el color del fondo del footer a azul */
+}
+
+img {
+  cursor: pointer; /* Cambia el cursor al pasar sobre los iconos */
+  transition: transform 0.2s; /* Animación al pasar el mouse */
+}
+
+img:hover {
+  transform: scale(1.1); /* Aumenta ligeramente el tamaño del icono al pasar el mouse */
+}
+.custom-footer-toolbar {
+  --background: #2f5399; /* Aplica el color de fondo */
+  color: white;
+  height: 60px; /* Ajusta la altura del toolbar */
+  padding: 0; /* Elimina cualquier relleno interno extra */
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%; /* Asegura que el contenido ocupe toda la altura del toolbar */
+  padding: 0 10px; /* Ajusta el espacio horizontal */
+}

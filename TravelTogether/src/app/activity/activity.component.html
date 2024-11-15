@@ -1,0 +1,55 @@
+<app-navbar-group></app-navbar-group>
+<ion-content >
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button routerLink="/new_activity">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+<ion-grid>
+  <ion-row style="align-items: center;">
+    <ion-col size="12">
+      <ion-searchbar animated="true" placeholder="Actividades"></ion-searchbar>
+    </ion-col>
+    <ion-col size="6">
+      <ion-list >
+        <ion-item>
+          <ion-select aria-label="Categorias" placeholder="Categoría">
+            <ion-select-option value="Salidas">Salidas</ion-select-option>
+            <ion-select-option value="Comidas">Comidas</ion-select-option>
+            <ion-select-option value="Evento">Eventos</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+  <ion-row   *ngFor="let ac of actividades"  >
+   <ion-col>
+     <ion-col>
+       <ion-card>
+         <img alt="Silhouette of mountains" src="{{ac.multimedia}}" />
+         <ion-card-header>
+           <div class="header-container">
+             <div>
+               <ion-card-title>{{ac.nombre}}</ion-card-title>
+               <ion-card-subtitle>{{ac.lugar}}</ion-card-subtitle>
+             </div>
+             <!-- Contenedor del contador alineado a la derecha -->
+             <div class="counter-container">
+               <ion-button (click)="decrement()">-</ion-button>
+               <p class="contador">{{count }}</p>
+               <ion-button (click)="increment()">+</ion-button>
+             </div>
+           </div>
+         </ion-card-header>
+
+         <ion-card-content>
+          {{ac.descripcion}}
+         </ion-card-content>
+       </ion-card>
+     </ion-col>
+   </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>
+<app-footer></app-footer>
+

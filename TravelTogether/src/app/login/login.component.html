@@ -1,0 +1,26 @@
+
+<div class="centered-content">
+  <ion-img src="assets/img/logo_avion.png" alt="Logo de la aplicación" class="small-logo"></ion-img>
+
+  <ion-text class="titulo">
+    <h1>Travel Together</h1>
+  </ion-text>
+
+  <ion-list>
+    <ion-item>
+      <ion-textarea placeholder="Usuario" class="margin-top"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-input type="password" placeholder="Contraseña">
+        <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+      </ion-input>
+    </ion-item>
+  </ion-list>
+
+<ion-button size="default" [routerLink]="['/group']" fill="solid" class="margin-top">Iniciar sesión</ion-button>
+<ion-button  size="default" [routerLink]="['/registration']" fill="outline" class="margin-bo" >Registrarse</ion-button>
+    <ion-button size="default" fill="clear"  class="google-button">
+        <ion-img src="assets/icon/icons-google.png" alt="Registrarse con Google" style="width: 30px; height: 30px; margin-right: 10px;"></ion-img>
+        Registrarse con Google
+    </ion-button>
+</div>

@@ -1,0 +1,136 @@
+<ion-content>
+  <!-- Header con el nombre del grupo y el ícono de edición -->
+  <ion-grid>
+    <ion-row style="align-items: center;"> <!-- Alineación centrada -->
+      <ion-col size="7">
+        <ion-label class="group-name">
+          <h1>Nombre del grupo <ion-icon name="create-outline"></ion-icon></h1>
+        </ion-label>
+      </ion-col>
+      <ion-col size="2" >
+        <ion-button fill="clear">
+          <img src="assets/icon/icon-lapiz.png" style="width: 25px; height: 25px;">
+        </ion-button>
+      </ion-col>
+      <ion-col size="3" class="ion-text-right">
+        <ion-avatar>
+          <img src="assets/img/img_group.png" alt="Group Avatar" />
+        </ion-avatar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <!-- Sección de Participantes -->
+  <ion-card class="participants-card">
+    <ion-card-header>
+      <ion-row style="align-items: center;"> <!-- Alineación centrada -->
+        <ion-col size="9">
+          <div class="participants-title" style="display: flex; align-items: center;">
+            <ion-icon name="people-outline" style="margin-right: 8px;"></ion-icon>
+            <h2 style="margin: 0;">Participantes</h2>
+          </div>
+        </ion-col>
+        <ion-col size="3" class="ion-text-right">
+          <ion-button fill="clear" [routerLink]="['/add-users-group']">
+            <img src="assets/icon/icons-nuevo_participante.png" alt="Añadir Participante" style="width: 30px; height: 30px;">
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+
+
+    <ion-card-content>
+      <ion-list>
+        <!-- Participante 1 -->
+        <ion-item *ngFor="let usu of usuarios" >
+          <ion-avatar slot="start">
+            <img src="https://img.freepik.com/vector-premium/ilustracion-avatar-estudiante-icono-perfil-usuario-avatar-jovenes_118339-4402.jpg" alt="Avatar" />
+          </ion-avatar>
+          <ion-label>{{usu}}</ion-label>
+          <ion-button fill="clear" slot="end">
+            <img src="assets/icon/icons-multiplicar.png" alt="Eliminar" style="width: 24px; height: 24px;">
+          </ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Sección de número de votos necesarios -->
+  <ion-card class="votes-card">
+    <ion-card-header>
+      <ion-label class="votes-title">Nº DE VOTOS NECESARIOS:</ion-label>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row style="align-items: center;"> <!-- Centrar el contenido verticalmente -->
+
+          <!-- Número de votos a la izquierda -->
+          <ion-col size="2" class="ion-text-left">
+            <h1 style="margin: 0;" class="contador">{{count }}</h1>
+          </ion-col>
+
+          <!-- Flecha "down" justo después de la flecha "up" -->
+          <ion-col >
+            <div class="counter-container">
+              <ion-button (click)="decrement()">-</ion-button>
+              <ion-button (click)="increment()">+</ion-button>
+            </div>
+          </ion-col>
+
+          <!-- Imagen de votación alineada a la derecha -->
+          <ion-col  class="ion-text-right">
+            <img src="assets/icon/icons-vote.png" alt="Icono de Votos" style="width: 90px; height: 90px;">
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+
+
+
+  <!-- Iconos de Compartir -->
+  <ion-card class="share-card">
+    <ion-card-header>
+      <ion-label >COMPARTIR:</ion-label>
+    </ion-card-header>
+    <ion-card-content class="share-card-content">
+      <ion-grid class="bottom-icons">
+        <ion-row>
+          <!-- Papelera -->
+          <ion-col size="3" class="ion-text-center">
+            <ion-button fill="clear">
+              <img src="assets/icon/icons-instagram.png" alt="Instagram"  />
+            </ion-button>
+          </ion-col>
+
+          <!-- Correo -->
+          <ion-col size="3" class="ion-text-center">
+            <ion-button fill="clear">
+              <img src="assets/icon/icons-gmail.png" alt="WhatsApp"  />
+            </ion-button>
+          </ion-col>
+
+          <!-- Enlace -->
+          <ion-col size="3" class="ion-text-center">
+            <ion-button fill="clear">
+              <img src="assets/icon/icons-telegram.png" alt="WhatsApp"  />
+            </ion-button>
+          </ion-col>
+
+          <!-- WhatsApp -->
+          <ion-col size="3" class="ion-text-center">
+            <ion-button fill="clear">
+              <img src="assets/icon/icons-whatsapp.png" alt="WhatsApp"  />
+            </ion-button>
+          </ion-col>
+
+
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<app-footer></app-footer>
