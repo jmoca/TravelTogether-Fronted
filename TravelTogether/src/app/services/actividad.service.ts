@@ -15,11 +15,11 @@ export class ActividadService {
     getActividades(id_grupo:number): Observable<Actividad[]>{
       return this.httpClient.get<any>(`/api/viaje/actividades?id_grupo=${id_grupo}`);
     }
-    crearActividad(actividad:Actividad): Observable<Actividad>{
-        return this.httpClient.post<Actividad>(`/api/viaje/actividad`,actividad);
+    crearActividad(id_usuario: number, actividad:Actividad): Observable<Actividad>{
+        return this.httpClient.post<Actividad>(`/api/viaje/actividades/nueva?id_usuario=${id_usuario}`,actividad);
     }
     votarActividad(id_actividad:number): Observable<Actividad>{
-        return this.httpClient.put<Actividad>(`/api/viaje/actividad/votar?id_actividad=${id_actividad}`,null);
+        return this.httpClient.put<Actividad>(`/api/viaje/actividades/votar?id_actividad=${id_actividad}`,null);
     }
 
 }

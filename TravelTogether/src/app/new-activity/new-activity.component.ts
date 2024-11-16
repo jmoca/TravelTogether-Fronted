@@ -24,6 +24,8 @@ export class NewActivityComponent implements OnInit {
   protected multimediaActividad!: string;
   protected ubicacionActividad!: string;
   protected fechaActividad!: string;
+  private id_usuario: number = 1;
+  protected id_grupo: number = 1;
 
 
 
@@ -37,14 +39,21 @@ export class NewActivityComponent implements OnInit {
   crearActividad(): void {
     // Verificar que todos los campos estén completos (esto es opcional, pero recomendable)
     if (this.nombreActividad && this.descripcionActividad && this.multimediaActividad && this.ubicacionActividad && this.fechaActividad) {
-      const nuevaActividad = new Actividad(
+      const nuevaActividad = new Actividad();
+      nuevaActividad.nombre = this.nombreActividad;
+      nuevaActividad.descripcion = this.descripcionActividad;
+      nuevaActividad.multimedia = this.multimediaActividad;
+      nuevaActividad.lugar = this.ubicacionActividad;
+      nuevaActividad.fecha = this.fechaActividad;
+      nuevaActividad.id_grupo = this.id_grupo;
+      console.log('Datos de la actividad a crear:', nuevaActividad);
 
-      );
 
       // Llamamos al servicio para guardar la nueva actividad
-      this.actividadService.crearActividad(nuevaActividad).subscribe(
-        (response) => {
-          console.log('Actividad creada con éxito:', response);
+      this.actividadService.crearActividad(this.id_usuario, nuevaActividad).subscribe(
+        (data) => {
+          console.log('Actividad creada con éxito:', data);
+          console.info(data);
           // Aquí puedes hacer algo después de crear la actividad, como redirigir a otra página o limpiar el formulario
         },
         (error) => {

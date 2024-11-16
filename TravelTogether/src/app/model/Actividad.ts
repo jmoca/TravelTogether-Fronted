@@ -8,6 +8,7 @@ export class Actividad {
     lugar?: string;
     votos?: number;
     multimedia?: string;
+    id_grupo?: number;
 
 
 }
