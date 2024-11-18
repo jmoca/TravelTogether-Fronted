@@ -22,4 +22,8 @@ export class ActividadService {
         return this.httpClient.put<Actividad>(`/api/viaje/actividades/votar?id_actividad=${id_actividad}`,null);
     }
 
+    votosTotales(id_actividad:number): Observable<number>{
+        return this.httpClient.get<number>(`/api/viaje/actividades/votos?id_actividad=${id_actividad}`);
+    }
+
 }

@@ -21,7 +21,7 @@ import {CommonModule} from "@angular/common";
     FooterComponent,
     RouterLink,
     NavbarGroupComponent,
-      CommonModule
+    CommonModule
   ]
 })
 export class ActivityComponent implements OnInit {
@@ -31,19 +31,47 @@ export class ActivityComponent implements OnInit {
 
   constructor(private actividadService: ActividadService) {
     addIcons({ add });
-
   }
 
-    ngOnInit() {
-        this.actividadService.getActividades(this.id_grupo).subscribe({
-            next: (data) => {
-                this.actividades = data;
-                console.info(data);
-            },
-            error: (error) => console.error('Erro',error),
-            complete: () => console.log('Petición completada')
+  ngOnInit() {
+    this.cargarActividades();
+  }
+
+  cargarActividades(): void {
+    this.actividadService.getActividades(this.id_grupo).subscribe({
+      next: (data) => {
+        this.actividades = data;
+        console.info(data);
+
+        // Por cada actividad, obtener los votos
+        this.actividades.forEach((actividad) => {
+          if (actividad.id !== undefined) {
+            this.todosVotos(actividad); // Pasar la actividad completa
+          }
         });
+      },
+      error: (error) => console.error('Error', error),
+      complete: () => console.log('Petición completada')
+    });
+  }
+
+  todosVotos(actividad: Actividad): void {
+    if (actividad.id !== undefined) {
+      this.actividadService.votosTotales(actividad.id).subscribe({
+        next: (data) => {
+          console.info('Votos totales para la actividad ' + actividad.id, data);
+          // Asignamos el balanceVotos a la actividad
+          if (Array.isArray(data) && data.length > 0) {
+            (actividad as any).balanceVotos = (data as any)[0].balanceVotos; // Asignamos el balanceVotos de la respuesta
+          }
+        },
+        error: (error) => console.error('Error al obtener votos para la actividad', error),
+        complete: () => console.log('Petición completada')
+      });
     }
+  }
+
+
 
   count = 0;
 
@@ -54,6 +82,4 @@ export class ActivityComponent implements OnInit {
   decrement() {
     this.count--;
   }
-
-
 }

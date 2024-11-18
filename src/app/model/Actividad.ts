@@ -6,7 +6,7 @@ export class Actividad {
     descripcion?: string;
     fecha?: string;
     lugar?: string;
-    votos?: number;
+    balanceVotos?: number;
     multimedia?: string;
     id_grupo?: number;
 
