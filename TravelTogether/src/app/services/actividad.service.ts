@@ -18,8 +18,8 @@ export class ActividadService {
     crearActividad(id_usuario: number, actividad:Actividad): Observable<Actividad>{
         return this.httpClient.post<Actividad>(`/api/viaje/actividades/nueva?id_usuario=${id_usuario}`,actividad);
     }
-    votarActividad(id_actividad:number): Observable<Actividad>{
-        return this.httpClient.put<Actividad>(`/api/viaje/actividades/votar?id_actividad=${id_actividad}`,null);
+    votarActividad(id_actividad:number, id_usuario:number, tipo_voto:boolean): Observable<Actividad>{
+        return this.httpClient.put<Actividad>(`/api/viaje/actividades/votar?id_actividad=${id_actividad}&id_usuario=${id_usuario}&tipo_voto=${tipo_voto}`, {});
     }
 
     votosTotales(id_actividad:number): Observable<number>{

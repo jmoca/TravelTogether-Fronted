@@ -71,15 +71,28 @@ export class ActivityComponent implements OnInit {
     }
   }
 
-
-
-  count = 0;
-
-  increment() {
-    this.count++;
+  votarmasActividad(id_actividad: number, id_usuario: number): void {
+    let tipo_voto = true;
+    this.actividadService.votarActividad(id_actividad, id_usuario, tipo_voto).subscribe({
+      next: (data) => {
+        console.log('Voto registrado con éxito:', data);
+        // Actualizar la lista de actividades
+        this.cargarActividades();
+      },
+      error: (error) => console.error('Error al votar la actividad:', error),
+      complete: () => console.log('Petición completada')
+    });
   }
-
-  decrement() {
-    this.count--;
+  votarmenosActividad(id_actividad: number, id_usuario: number): void {
+    let tipo_voto = false;
+    this.actividadService.votarActividad(id_actividad, id_usuario, tipo_voto).subscribe({
+      next: (data) => {
+        console.log('Voto registrado con éxito:', data);
+        // Actualizar la lista de actividades
+        this.cargarActividades();
+      },
+      error: (error) => console.error('Error al votar la actividad:', error),
+      complete: () => console.log('Petición completada')
+    });
   }
 }

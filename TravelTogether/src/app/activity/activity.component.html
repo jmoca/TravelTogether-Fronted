@@ -35,9 +35,9 @@
              </div>
              <!-- Contenedor del contador alineado a la derecha -->
              <div class="counter-container">
-               <ion-button (click)="decrement()">-</ion-button>
-               <p class="contador">{{ac.balanceVotos }}</p>
-               <ion-button (click)="increment()">+</ion-button>
+               <ion-button (click)="votarmenosActividad(ac.id ?? 0, 1)">-</ion-button>
+               <p class="contador">{{ac.balanceVotos ?? 0 }}</p>
+               <ion-button (click)="votarmasActividad(ac.id ?? 0, 1)">+</ion-button>
              </div>
            </div>
          </ion-card-header>
