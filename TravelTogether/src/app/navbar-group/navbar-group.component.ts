@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {IonicModule} from "@ionic/angular";
-import {RouterLink} from "@angular/router";
+import {ActivatedRoute, RouterLink} from "@angular/router";
 
 @Component({
     selector: 'app-navbar-group',
@@ -13,8 +13,10 @@ import {RouterLink} from "@angular/router";
   ]
 })
 export class NavbarGroupComponent  implements OnInit {
-
-  constructor() { }
+  id_grupo!: number;
+  constructor(private route: ActivatedRoute) {
+    this.id_grupo = Number(this.route.snapshot.paramMap.get('id'));
+  }
 
   ngOnInit() {}
 

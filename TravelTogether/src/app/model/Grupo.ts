@@ -9,6 +9,7 @@ export class Grupo{
     integrantes?: number;
     fecha_creacion?: string;
     usuarios?: Usuario[];
+    idUsuarioCreador?: number;
 
 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicModule } from "@ionic/angular";
-import {RouterLink} from "@angular/router";
+import {ActivatedRoute, RouterLink} from "@angular/router";
 import {CommonModule} from "@angular/common";
 import {ActividadService} from "../services/Actividad.service";
 import {FormsModule} from "@angular/forms";
@@ -25,13 +25,14 @@ export class NewActivityComponent implements OnInit {
   protected ubicacionActividad!: string;
   protected fechaActividad!: string;
   private id_usuario: number = 1;
-  protected id_grupo: number = 1;
+  id_grupo!: number;
 
 
-  constructor(private actividadService: ActividadService) {
+  constructor(private actividadService: ActividadService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    this.id_grupo = Number(this.route.snapshot.paramMap.get('id'));
   }
 
 
@@ -39,6 +40,7 @@ export class NewActivityComponent implements OnInit {
     // Verificar que todos los campos estén completos (esto es opcional, pero recomendable)
     if (this.nombreActividad && this.descripcionActividad && this.multimediaActividad && this.ubicacionActividad && this.fechaActividad) {
       const nuevaActividad = new Actividad();
+      this.id_grupo = Number(this.route.snapshot.paramMap.get('id'));
       nuevaActividad.id_grupo = this.id_grupo;
       nuevaActividad.nombre = this.nombreActividad;
       nuevaActividad.descripcion = this.descripcionActividad;

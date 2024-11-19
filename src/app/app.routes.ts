@@ -40,11 +40,11 @@
       loadComponent: () => import('./navbar/navbar.component').then((m) => m.NavbarComponent),
     },
     {
-      path :'new_activity',
+      path :'new_activity/:id',
       loadComponent: () => import('./new-activity/new-activity.component').then((m) => m.NewActivityComponent),
     },
     {
-      path :'settings-group',
+      path :'settings-group/:id',
       loadComponent: () => import('./settings-group/settings-group.component').then((m) => m.SettingsGroupComponent),
     },
     {
@@ -65,7 +65,7 @@
       loadComponent: () => import('./new-group/new-group.component').then((m) => m.NewGroupComponent),
     },
     {
-      path: 'add-users-group',
+      path: 'add-users-group/:id',
       loadComponent: () => import('./add-users-group/add-users-group.component').then((m) => m.AddUsersGroupComponent),
     },
     {

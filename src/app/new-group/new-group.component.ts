@@ -20,6 +20,7 @@ import {FormsModule} from "@angular/forms";
 })
 export class NewGroupComponent  implements OnInit {
     grupoNuevo: Grupo = new Grupo();
+    idUsuarioCreador:number  = 1;
   constructor(private  grupoService: GrupoService) { }
 
   ngOnInit() {
@@ -28,12 +29,16 @@ export class NewGroupComponent  implements OnInit {
   }
 
 
-  guardarGrupo(){
-    this.grupoService.crearGrupo(this.grupoNuevo).subscribe((grupo:Grupo)=>{
+  guardarGrupo() {
+    // Asigna el idUsuarioCreador al grupo antes de enviarlo
+    this.grupoNuevo.idUsuarioCreador = this.idUsuarioCreador;
 
-      console.log("Grupo creado",grupo);
+    // Pasa solo el objeto grupoNuevo al servicio
+    this.grupoService.crearGrupo(this.grupoNuevo).subscribe((grupo: Grupo) => {
+      console.log("Grupo creado", grupo);
     });
   }
+
 
 
 }

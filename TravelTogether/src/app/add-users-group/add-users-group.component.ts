@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {IonicModule} from "@ionic/angular";
-import {RouterLink} from "@angular/router";
+import {ActivatedRoute, RouterLink} from "@angular/router";
 import {Usuario} from "../model/Usuario";
 import {GrupoService} from "../services/Grupo.service";
 import {CommonModule} from "@angular/common";
@@ -22,18 +22,20 @@ import {Grupo} from "../model/Grupo";
 export class AddUsersGroupComponent  implements OnInit {
   // signo ! asegura sea inicializada
   protected id_usuario!: number;
-  private id_grupo: number = 1;
+  id_grupo!: number;
 
 
-  constructor(private  grupoService: GrupoService, private grupoServicio: GrupoService) { }
+  constructor(private  grupoService: GrupoService,  private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.nuevoParticipante();
+    this.id_grupo = Number(this.route.snapshot.paramMap.get('id'));
 
   }
 
 
   nuevoParticipante(): void {
+    this.id_grupo = Number(this.route.snapshot.paramMap.get('id'));
     if (this.id_usuario != null && this.id_usuario > 0) {
       this.grupoService.nuevoParticipante(this.id_grupo, this.id_usuario).subscribe(
         (usuario: Usuario) => {

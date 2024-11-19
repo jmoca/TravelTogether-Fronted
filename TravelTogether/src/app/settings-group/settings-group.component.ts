@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {IonicModule} from "@ionic/angular";
 import {FooterComponent} from "../footer/footer.component";
-import {RouterLink} from "@angular/router";
+import {ActivatedRoute, RouterLink} from "@angular/router";
 import {CommonModule} from "@angular/common";
 
 import {GrupoService} from "../services/Grupo.service";
@@ -21,15 +21,17 @@ import {Grupo} from "../model/Grupo";
 })
 export class SettingsGroupComponent implements OnInit {
   usuarios: { id: number | undefined; nombre: string }[] = [];
-  private id_grupo: number = 1;
+  id_grupo!: number;
 
-  constructor(private grupoServicio: GrupoService) { }
+  constructor(private grupoServicio: GrupoService,  private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.cargarUsuarios();
+    this.id_grupo = Number(this.route.snapshot.paramMap.get('id'));
   }
 
   cargarUsuarios(): void {
+    this.id_grupo = Number(this.route.snapshot.paramMap.get('id'));
     this.grupoServicio.getParticipantes(this.id_grupo).subscribe({
       next: (grupo: Grupo) => {
         if (grupo.usuarios) {
@@ -61,6 +63,7 @@ export class SettingsGroupComponent implements OnInit {
   }
 
   eliminarParticipante(id_usuario: number | undefined): void {
+    this.id_grupo = Number(this.route.snapshot.paramMap.get('id'));
     if (id_usuario !== undefined) {  // Comprobamos si id_usuario no es undefined
       this.grupoServicio.eliminarParticipante(this.id_grupo, id_usuario).subscribe(
         (usuario) => {

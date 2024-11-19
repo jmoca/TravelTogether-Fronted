@@ -1,7 +1,7 @@
 <app-navbar-group></app-navbar-group>
 <ion-content >
   <ion-fab horizontal="end" vertical="bottom" slot="fixed">
-    <ion-fab-button routerLink="/new_activity">
+    <ion-fab-button [routerLink]="['/new_activity', id_grupo]">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
