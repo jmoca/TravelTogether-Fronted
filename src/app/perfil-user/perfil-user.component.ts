@@ -5,7 +5,7 @@ import {RouterLink} from "@angular/router";
 import {Usuario} from "../model/Usuario";
 
 import {CommonModule} from "@angular/common";
-import {UsuarioService} from "../services/usuario.service";
+import {UsuarioService} from "../services/Usuario.service";
 
 @Component({
     selector: 'app-perfil-user',
