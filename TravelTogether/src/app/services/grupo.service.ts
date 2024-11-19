@@ -41,7 +41,7 @@ export class GrupoService {
   }
 
   crearGrupo(nuevoGrupo: Grupo): Observable<Grupo>{
-        nuevoGrupo.id = 6;
+
         return this.httpClient.post<Grupo>(`/api/viaje/nuevo`,nuevoGrupo);
     }
 

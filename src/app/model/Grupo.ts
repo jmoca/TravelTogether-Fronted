@@ -2,7 +2,7 @@ import {Usuario} from "./Usuario";
 
 
 export class Grupo{
-    id?: number;
+    id_grupo!: number;
     nombre?: string;
     descripcion?: string;
     multimedia?: string;

@@ -29,13 +29,12 @@ export class GroupComponent  implements OnInit {
   constructor(private grupoService: GrupoService) { }
 
     ngOnInit() {
-
     this.cargarGrupos();
   }
     cargarGrupos(): void{
         this.grupoService.getGrupos(this.id_usuario).subscribe({
             next: (data) => {
-                this.grupos = data;  // Aquí debes recibir un array de grupos
+                this.grupos = data;
                 console.info(data);
             },
             error: (error) => console.error('Erro',error),

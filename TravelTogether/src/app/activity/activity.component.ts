@@ -3,8 +3,9 @@ import { IonicModule } from "@ionic/angular";
 import { NavbarComponent } from "../navbar/navbar.component";
 import { FooterComponent } from "../footer/footer.component";
 import {addIcons} from "ionicons";
+
 import {add} from "ionicons/icons";
-import {RouterLink} from "@angular/router";
+import {ActivatedRoute, RouterLink} from "@angular/router";
 import {NavbarGroupComponent} from "../navbar-group/navbar-group.component";
 import {Actividad} from "../model/Actividad";
 import {ActividadService} from "../services/Actividad.service";
@@ -27,18 +28,21 @@ import {CommonModule} from "@angular/common";
 export class ActivityComponent implements OnInit {
 
   actividades: Actividad[] = [];
-  private id_grupo: number = 1;
+  id_grupo!: number;
 
-  constructor(private actividadService: ActividadService) {
+  constructor(private actividadService: ActividadService, private route: ActivatedRoute) {
     addIcons({ add });
   }
 
   ngOnInit() {
     this.cargarActividades();
+    this.id_grupo = Number(this.route.snapshot.paramMap.get('id'));
   }
 
   cargarActividades(): void {
+    this.id_grupo = Number(this.route.snapshot.paramMap.get('id'));
     this.actividadService.getActividades(this.id_grupo).subscribe({
+
       next: (data) => {
         this.actividades = data;
         console.info(data);

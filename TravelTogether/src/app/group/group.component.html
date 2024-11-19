@@ -13,11 +13,11 @@
     <!-- Grupos -->
     <ion-row  *ngFor="let grupo of grupos">
       <ion-col class="centered-content" size="12">
-        <ion-button  expand="block" color="primary" class="grupo-btn" style="border-radius: 50px; justify-content: flex-start; " [routerLink]="['/activity']">
+        <ion-button  expand="block" color="primary" class="grupo-btn" style="border-radius: 50px; justify-content: flex-start; " [routerLink]="['/activity',grupo.id_grupo]">
           <ion-avatar style="width: 80px; height: 80px;overflow: hidden;  margin-right: 20px;">
             <ion-img src="{{grupo.multimedia}}"></ion-img>
           </ion-avatar>
-          <span class="grupo-texto"  style="flex-grow: 1; text-align: left;">{{grupo.nombre}}</span>
+          <span class="grupo-texto"  style="flex-grow: 1; text-align: left;">{{grupo?.nombre}}</span>
         </ion-button>
       </ion-col>
 

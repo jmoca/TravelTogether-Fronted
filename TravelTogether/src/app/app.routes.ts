@@ -12,7 +12,7 @@
     },
 
     {
-      path :'activity',
+      path :'activity/:id',
       loadComponent: () => import('./activity/activity.component').then((m) => m.ActivityComponent),
     },
     {
@@ -51,26 +51,27 @@
       path :'menu',
       loadComponent: () => import('./menu/menu.component').then((m) => m.MenuComponent),
     },
-      {
-          path: 'registration',
-          loadComponent: () => import('./registration/registration.component').then((m) => m.RegistrationComponent),
-      },
+    {
+      path: 'registration',
+      loadComponent: () => import('./registration/registration.component').then((m) => m.RegistrationComponent),
+    },
 
-      {
-          path: 'perfil-user',
-          loadComponent: () => import('./perfil-user/perfil-user.component').then((m) => m.PerfilUserComponent),
-      },
-      {
-          path: 'new-group',
-          loadComponent: () => import('./new-group/new-group.component').then((m) => m.NewGroupComponent),
-      },
-      {
-          path: 'add-users-group',
-          loadComponent: () => import('./add-users-group/add-users-group.component').then((m) => m.AddUsersGroupComponent),
-      },
-      {
-          path: 'add-friends',
-          loadComponent: () => import('./add-friends/add-friends.component').then((m) => m.AddFriendsComponent),
-      }
+    {
+      path: 'perfil-user',
+      loadComponent: () => import('./perfil-user/perfil-user.component').then((m) => m.PerfilUserComponent),
+    },
+    {
+      path: 'new-group',
+      loadComponent: () => import('./new-group/new-group.component').then((m) => m.NewGroupComponent),
+    },
+    {
+      path: 'add-users-group',
+      loadComponent: () => import('./add-users-group/add-users-group.component').then((m) => m.AddUsersGroupComponent),
+    },
+    {
+      path: 'add-friends',
+      loadComponent: () => import('./add-friends/add-friends.component').then((m) => m.AddFriendsComponent),
+    }
+
 
   ];
