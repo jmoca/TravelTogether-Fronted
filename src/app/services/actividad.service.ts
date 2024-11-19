@@ -15,8 +15,8 @@ export class ActividadService {
     getActividades(id_grupo:number): Observable<Actividad[]>{
       return this.httpClient.get<any>(`/api/viaje/actividades?id_grupo=${id_grupo}`);
     }
-    crearActividad(id_usuario: number, actividad:Actividad): Observable<Actividad>{
-        return this.httpClient.post<Actividad>(`/api/viaje/actividades/nueva?id_usuario=${id_usuario}`,actividad);
+    crearActividad(id_usuario: number, id_grupo:number, actividad:Actividad): Observable<Actividad>{
+    return this.httpClient.post<Actividad>(`/api/viaje/actividades/nueva?id_usuario=${id_usuario}&id_grupo=${id_grupo}`,actividad);
     }
     votarActividad(id_actividad:number, id_usuario:number, tipo_voto:boolean): Observable<Actividad>{
         return this.httpClient.put<Actividad>(`/api/viaje/actividades/votar?id_actividad=${id_actividad}&id_usuario=${id_usuario}&tipo_voto=${tipo_voto}`, {});
