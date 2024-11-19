@@ -19,7 +19,7 @@ export class ActividadService {
     return this.httpClient.post<Actividad>(`/api/viaje/actividades/nueva?id_usuario=${id_usuario}&id_grupo=${id_grupo}`,actividad);
     }
     votarActividad(id_actividad:number, id_usuario:number, tipo_voto:boolean): Observable<Actividad>{
-        return this.httpClient.put<Actividad>(`/api/viaje/actividades/votar?id_actividad=${id_actividad}&id_usuario=${id_usuario}&tipo_voto=${tipo_voto}`, {});
+        return this.httpClient.post<Actividad>(`/api/viaje/actividades/votar?id_actividad=${id_actividad}&id_usuario=${id_usuario}&tipo_voto=${tipo_voto}`, {});
     }
 
     votosTotales(id_actividad:number): Observable<number>{
