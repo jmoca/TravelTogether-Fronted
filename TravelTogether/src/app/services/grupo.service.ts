@@ -40,9 +40,9 @@ export class GrupoService {
     });
   }
 
-  crearGrupo(nuevoGrupo: Grupo): Observable<Grupo>{
+  crearGrupo(nuevoGrupo: Grupo, id_usuario:number): Observable<Grupo>{
 
-        return this.httpClient.post<Grupo>(`/api/viaje/nuevo`,nuevoGrupo);
+        return this.httpClient.post<Grupo>(`/api/viaje/nuevo?id_usuario=${id_usuario}`,nuevoGrupo);
     }
 
 }

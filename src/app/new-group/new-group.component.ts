@@ -34,7 +34,7 @@ export class NewGroupComponent  implements OnInit {
     this.grupoNuevo.idUsuarioCreador = this.idUsuarioCreador;
 
     // Pasa solo el objeto grupoNuevo al servicio
-    this.grupoService.crearGrupo(this.grupoNuevo).subscribe((grupo: Grupo) => {
+    this.grupoService.crearGrupo(this.grupoNuevo, this.idUsuarioCreador).subscribe((grupo: Grupo) => {
       console.log("Grupo creado", grupo);
     });
   }
